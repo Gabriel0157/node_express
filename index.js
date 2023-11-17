@@ -11,18 +11,7 @@ app.use(express.urlencoded({
 
 app.use(express.json())
 
-{
-    "name": "Gabriel P",
-    "email": "gp776945@gmail.com",
-    "senha": "1234"
-}
-
-const usuarios = {
-    name: "Gabriel P",
-    email: "gp776945@gmail.com",
-    senha: 1234
-}
-
+//GET e POST
 app.post('/cadastrar/salvar', (requisicao, resposta) => {
     const nome = requisicao.body.nome
     const email = requisicao.body.email
@@ -41,7 +30,7 @@ app.get('/usuarios/:id', (requisicao, resposta) => {
 
     console.log(`Acessando dados do usuário ${id}`)
 
-    resposta.sendFile('{caminhoBase}/index.html')
+    resposta.sendFile('${caminhoBase}/usuarios.html')
     
 })
 
@@ -52,5 +41,3 @@ app.get('/', (requisicao, resposta) => {
 app.listen(3000, () => {
     console.log("Servidor rodando na porta 3000!")
 })
-
-/**/
